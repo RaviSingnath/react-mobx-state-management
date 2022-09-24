@@ -1,15 +1,15 @@
 import { useContext } from 'react';
-import { useObserver } from 'mobx-react'
-import { StoreContext } from "../../App"
+import { observer } from 'mobx-react'
+import { BugsContext } from "../../App"
 
 const BugList = () => {
-  const store = useContext(StoreContext)
+  const store = useContext(BugsContext)
 
-  return useObserver(() => (
+  return (
     <ul>
-      {store.bugs.map((bug, i) => <li key={i}>{bug}</li>)}
+      {store.getBugsList().map((bug, i) => <li key={i}>{bug}</li>)}
     </ul>
-  ))
+  )
 }
 
-export default BugList
+export default observer(BugList)

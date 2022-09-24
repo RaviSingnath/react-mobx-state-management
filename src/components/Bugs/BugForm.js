@@ -1,13 +1,13 @@
 import { useContext, useState } from 'react';
-import { StoreContext } from "../../App"
+import { BugsContext } from "../../App"
 
 const BugForm = () => {
-  const store = useContext(StoreContext)
+  const store = useContext(BugsContext)
   const [bug , setBug] = useState('')
 
   return (
     <form onSubmit={(e) => {
-      store.addBug(bug)
+      store.setBugsList(bug)
       setBug('')
       e.preventDefault()
     }}>
