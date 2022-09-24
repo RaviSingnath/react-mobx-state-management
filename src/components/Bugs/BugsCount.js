@@ -1,13 +1,13 @@
 import { useContext } from 'react';
-import { useObserver } from 'mobx-react'
-import { StoreContext } from "../../App"
+import { observer } from 'mobx-react'
+import { BugsContext } from "../../App"
 
 const BugsCount = () => {
-  const store = useContext(StoreContext)
+  const store = useContext(BugsContext)
 
-  return useObserver(() => (
-    <h1>Bugs: {store.bugCount}</h1>
-  ))
+  return (
+    <h1>Bugs: {store.bugsCount}</h1>
+  )
 }
 
-export default BugsCount
+export default observer(BugsCount)
